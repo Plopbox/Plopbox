@@ -944,13 +944,16 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
 ::selection { background:rgba(0,212,255,.2); color:var(--tx1); }
 
 /* ── Logo waves ─────────────────────────────────────────────── */
-.logo-wave { animation: waveRise 2.4s ease-in-out infinite; }
-.logo-wave-2 { animation-delay: .75s; }
-.logo-wave-3 { animation-delay: 1.5s; }
+.logo-wave { animation: waveRise 2.8s ease-in-out infinite; transform-origin: center bottom; }
+.logo-wave-2 { animation-delay: .56s; }
+.logo-wave-3 { animation-delay: 1.12s; }
+.logo-wave-4 { animation-delay: 1.68s; }
+.logo-wave-5 { animation-delay: 2.24s; }
 @keyframes waveRise {
-  0%   { opacity: 0; transform: translateY(5px);  }
-  20%  { opacity: .9; }
-  100% { opacity: 0; transform: translateY(-10px); }
+  0%   { opacity: 0; transform: translateY(7px);  }
+  18%  { opacity: 1; }
+  80%  { opacity: .6; }
+  100% { opacity: 0; transform: translateY(-16px); }
 }
 
 /* ── Spotlight / cursor-reveal overlay ──────────────────────── */

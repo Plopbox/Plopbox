@@ -1,0 +1,96 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient (optional if you want pure black) -->
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#101426"/>
+      <stop offset="100%" stop-color="#02030a"/>
+    </radialGradient>
+
+    <!-- Box outline gradient -->
+    <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d8ff"/>
+      <stop offset="50%" stop-color="#7b5cff"/>
+      <stop offset="100%" stop-color="#ff3fbf"/>
+    </linearGradient>
+
+    <!-- Magic waves gradient -->
+    <linearGradient id="magicGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#34d8ff"/>
+      <stop offset="100%" stop-color="#ff3fbf"/>
+    </linearGradient>
+
+    <!-- Soft outer glow for the magic -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feColorMatrix
+        in="blur"
+        type="matrix"
+        values="0 0 0 0 0.2
+                0 0 0 0 0.6
+                0 0 0 0 1
+                0 0 0 0.7 0" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="512" height="512" fill="url(#bgGlow)"/>
+
+  <!-- Box group -->
+  <g fill="none" stroke="url(#boxGradient)" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Front face -->
+    <polygon points="160,320 352,320 320,410 192,410"/>
+
+    <!-- Side face -->
+    <polygon points="352,320 392,270 360,360 320,410"/>
+
+    <!-- Left side face -->
+    <polygon points="160,320 192,410 152,360 120,270"/>
+
+    <!-- Lid (top plane) -->
+    <polygon points="160,320 256,230 392,270 352,320"/>
+
+    <!-- Lid front edge -->
+    <line x1="256" y1="230" x2="216" y2="210"/>
+    <line x1="256" y1="230" x2="296" y2="215"/>
+  </g>
+
+  <!-- Magic waves + glow -->
+  <g filter="url(#softGlow)">
+    <g fill="none" stroke="url(#magicGradient)" stroke-width="5" stroke-linecap="round">
+      <!-- Center wave -->
+      <path d="M 256 270
+               C 244 240 252 215 248 195
+               C 244 175 234 165 232 150
+               C 230 135 236 120 244 112" />
+
+      <!-- Right wave -->
+      <path d="M 276 275
+               C 292 245 292 220 298 200
+               C 304 180 316 170 322 155
+               C 328 140 332 128 338 118" />
+
+      <!-- Left wave -->
+      <path d="M 236 275
+               C 220 245 218 222 212 202
+               C 206 182 194 170 188 155
+               C 182 140 178 128 172 118" />
+    </g>
+  </g>
+
+  <!-- Magic particles -->
+  <g fill="url(#magicGradient)">
+    <circle cx="248" cy="255" r="4"/>
+    <circle cx="268" cy="260" r="3.5"/>
+    <circle cx="238" cy="240" r="3"/>
+    <circle cx="282" cy="242" r="2.8"/>
+    <circle cx="260" cy="220" r="3.2"/>
+    <circle cx="230" cy="210" r="2.6"/>
+    <circle cx="290" cy="210" r="3"/>
+    <circle cx="250" cy="190" r="2.4"/>
+    <circle cx="272" cy="185" r="2.2"/>
+    <circle cx="240" cy="170" r="2.4"/>
+    <circle cx="300" cy="170" r="2.6"/>
+    <circle cx="222" cy="155" r="2.2"/>
+    <circle cx="316" cy="155" r="2.2"/>
+  </g>
+</svg>
