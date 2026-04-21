@@ -723,11 +723,12 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
   margin-right: auto;
 }
 .logo-svg {
-  width: 32px; height: 32px; flex-shrink: 0;
+  width: 36px; height: 36px; flex-shrink: 0;
   filter: drop-shadow(0 0 6px rgba(0,212,255,.35));
   animation: logoGlow 3s ease-in-out infinite;
+  overflow: visible;
 }
-.logo-svg-footer { width: 40px; height: 40px; }
+.logo-svg-footer { width: 46px; height: 46px; }
 @keyframes logoGlow {
   0%,100% { filter: drop-shadow(0 0 6px rgba(0,212,255,.35)); }
   50%      { filter: drop-shadow(0 0 14px rgba(168,85,247,.6)); }
