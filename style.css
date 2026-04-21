@@ -942,3 +942,114 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
 
 /* ── Selection ──────────────────────────────────────────────── */
 ::selection { background:rgba(0,212,255,.2); color:var(--tx1); }
+
+/* ── Logo waves ─────────────────────────────────────────────── */
+.logo-wave { animation: waveRise 2.4s ease-in-out infinite; }
+.logo-wave-2 { animation-delay: .75s; }
+.logo-wave-3 { animation-delay: 1.5s; }
+@keyframes waveRise {
+  0%   { opacity: 0; transform: translateY(5px);  }
+  20%  { opacity: .9; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* ── Spotlight / cursor-reveal overlay ──────────────────────── */
+#spotlight-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle 260px at -9999px -9999px, black, transparent);
+  mask-image: radial-gradient(circle 260px at -9999px -9999px, black, transparent);
+}
+.circuit-bg { position: absolute; inset: 0; opacity: .65; }
+
+/* ── Holographic card shimmer ────────────────────────────────── */
+.holo-card { position: relative; overflow: hidden; isolation: isolate; }
+.holo-card::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
+  background: linear-gradient(115deg,
+    transparent 25%,
+    rgba(0,212,255,.13) 40%,
+    rgba(168,85,247,.17) 50%,
+    rgba(0,212,255,.1)  60%,
+    transparent 75%
+  );
+  background-size: 250% 250%;
+  background-position: 100% 100%;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.holo-card:hover::before {
+  opacity: 1;
+  background-position: 0% 0%;
+  transition: opacity .3s, background-position 1.3s ease;
+}
+
+/* ── Corner bracket decorators ──────────────────────────────── */
+.bracket-card { position: relative; }
+.bracket-card::before,
+.bracket-card::after {
+  content: ''; position: absolute;
+  width: 15px; height: 15px;
+  border-color: var(--cyan); border-style: solid;
+  opacity: 0;
+  transition: opacity var(--trans), transform var(--trans);
+}
+.bracket-card::before {
+  top: 6px; left: 6px;
+  border-width: 1.5px 0 0 1.5px;
+  transform: scale(.6);
+  transform-origin: top left;
+}
+.bracket-card::after {
+  bottom: 6px; right: 6px;
+  border-width: 0 1.5px 1.5px 0;
+  transform: scale(.6);
+  transform-origin: bottom right;
+}
+.bracket-card:hover::before,
+.bracket-card:hover::after { opacity: .85; transform: scale(1); }
+
+/* ── Glitch text (hero name hover) ──────────────────────────── */
+.glitch-text { position: relative; }
+.glitch-text:hover::before,
+.glitch-text:hover::after {
+  content: attr(data-text);
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.glitch-text:hover::before {
+  animation: glitchUp .13s steps(2) infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 38%, 0 38%);
+}
+.glitch-text:hover::after {
+  animation: glitchDn .13s steps(2) infinite;
+  clip-path: polygon(0 62%, 100% 62%, 100% 100%, 0 100%);
+}
+@keyframes glitchUp {
+  0%   { transform: translateX(-3px); }
+  50%  { transform: translateX( 3px); }
+  100% { transform: translateX(-1px); }
+}
+@keyframes glitchDn {
+  0%   { transform: translateX( 3px); }
+  50%  { transform: translateX(-3px); }
+  100% { transform: translateX( 1px); }
+}
+
+/* ── Section heading scan-line sweep ────────────────────────── */
+.section-heading { position: relative; overflow: hidden; }
+.section-heading.scanned::after {
+  content: '';
+  position: absolute; top: 50%; left: -100%;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  box-shadow: 0 0 20px var(--cyan), 0 0 40px rgba(0,212,255,.4);
+  animation: scanSwipe .85s cubic-bezier(.4,0,.2,1) forwards;
+  pointer-events: none;
+}
+@keyframes scanSwipe {
+  from { left: -100%; opacity: 1; }
+  to   { left:  100%; opacity: 0; }
+}

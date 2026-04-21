@@ -281,3 +281,58 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
     }
   });
 })();
+
+/* ── Spotlight / cursor-reveal circuit overlay ───────────────── */
+(function initSpotlight() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  const overlay = document.getElementById('spotlight-overlay');
+  if (!overlay) return;
+  const OFF = 'radial-gradient(circle 260px at -9999px -9999px, black, transparent)';
+  document.addEventListener('mousemove', e => {
+    const g = `radial-gradient(circle 260px at ${e.clientX}px ${e.clientY}px, black 0%, transparent 100%)`;
+    overlay.style.webkitMaskImage = g;
+    overlay.style.maskImage = g;
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => {
+    overlay.style.webkitMaskImage = OFF;
+    overlay.style.maskImage = OFF;
+  });
+})();
+
+/* ── Holographic shimmer + corner brackets on all cards ─────── */
+(function initCardEffects() {
+  const sel = [
+    '.skill-cat', '.tl-card', '.edu-card', '.cert-card',
+    '.service-card', '.store-card', '.soft-card', '.gaming-card',
+    '.info-glass', '.explore-card', '.contact-item', '.contact-form'
+  ].join(',');
+  document.querySelectorAll(sel).forEach(c => {
+    c.classList.add('holo-card', 'bracket-card');
+  });
+})();
+
+/* ── Glitch text on hero name ────────────────────────────────── */
+(function initGlitch() {
+  const el = document.querySelector('.hero-name .line-top');
+  if (!el) return;
+  el.classList.add('glitch-text');
+  el.dataset.text = el.textContent;
+})();
+
+/* ── Section heading scan-line on scroll entry ───────────────── */
+(function initScanLines() {
+  const headings = document.querySelectorAll('.section-heading');
+  if (!headings.length) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      el.classList.remove('scanned');
+      void el.offsetWidth;
+      el.classList.add('scanned');
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  headings.forEach(h => observer.observe(h));
+})();
+
