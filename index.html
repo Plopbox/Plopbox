@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fadi Helal – SDET & Automation Engineer specializing in Robotics, ML & Intelligent Systems. Based in Espoo, Finland." />
+  <title>Fadi Helal | SDET & Automation Engineer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS (scroll animations) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░ Custom cursor ░░ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       NAV
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">FH<span class="logo-dot">.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about"      class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#skills"     class="nav-link">Skills</a></li>
+        <li><a href="#education"  class="nav-link">Education</a></li>
+        <li><a href="#contact"    class="nav-link">Contact</a></li>
+      </ul>
+
+      <a href="mailto:Fadi.helal@pm.me" class="btn btn-outline nav-cta">Hire Me</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       HERO
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="hero" id="home">
+    <canvas id="heroCanvas"></canvas>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        Open to opportunities
+      </div>
+
+      <h1 class="hero-name">
+        <span class="line-top">Fadi</span>
+        <span class="line-bottom gradient-text">Helal</span>
+      </h1>
+
+      <p class="hero-role">
+        <span class="role-prefix">I build</span>
+        <span class="typed-wrapper">
+          <span id="typed"></span><span class="type-cursor">|</span>
+        </span>
+      </p>
+
+      <p class="hero-desc">
+        SDET &amp; Automation Engineer where software meets the physical world —
+        robotics, connectivity, ML systems, and intelligent automation.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#experience" class="btn btn-primary">
+          View My Work <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="mailto:Fadi.helal@pm.me" class="btn btn-ghost">
+          Get In Touch <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-val" data-target="4">0</span><span class="stat-plus">+</span>
+          <span class="stat-lbl">Years Exp.</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-val" data-target="4">0</span>
+          <span class="stat-lbl">Languages</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-val" data-target="3">0</span>
+          <span class="stat-lbl">Degrees</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-val" data-target="5">0</span><span class="stat-plus">+</span>
+          <span class="stat-lbl">Certs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-bar"><div class="scroll-thumb"></div></div>
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       ABOUT
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section about" id="about">
+    <div class="container">
+
+      <div class="section-heading" data-aos="fade-up">
+        <span class="section-tag">About Me</span>
+        <h2>Where Software Meets<br>the Physical World</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-left" data-aos="fade-right">
+          <p class="about-lead">
+            I'm a <strong>Software Development Engineer in Test (SDET)</strong> with a
+            background in Automation &amp; Control in Technical Systems.
+          </p>
+          <p>
+            Most of my work lives where software meets the physical world —
+            robotics, connectivity, automation, and the intelligent systems that tie
+            everything together. I've always been drawn to systems that
+            <em>do something real</em>: machines that move, react, communicate, and
+            make decisions.
+          </p>
+          <p>
+            Whether I'm building a test harness, validating a robot's behavior, or
+            writing a tool to make a workflow smarter, I approach it the same way:
+            understand the system, write clean reliable code, and automate the parts
+            that matter.
+          </p>
+
+          <div class="tag-cloud">
+            <span class="tag">Robotics Testing</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">ML Systems</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Digital Twins</span>
+            <span class="tag">Simulation</span>
+            <span class="tag">Indie Game Dev</span>
+            <span class="tag">Embedded</span>
+          </div>
+
+          <div class="social-row">
+            <a href="https://www.linkedin.com/in/fadi-helal" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/saiprone" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:Fadi.helal@pm.me" class="social-btn" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-right" data-aos="fade-left">
+          <div class="info-glass">
+            <div class="info-row">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <span class="info-label">Location</span>
+                <span class="info-value">Espoo, Finland</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-briefcase"></i>
+              <div>
+                <span class="info-label">Current Role</span>
+                <span class="info-value">Test Developer · Visual Components</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-graduation-cap"></i>
+              <div>
+                <span class="info-label">Education</span>
+                <span class="info-value">MEng – Robotics &amp; Automation</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <i class="fas fa-language"></i>
+              <div>
+                <span class="info-label">Languages</span>
+                <span class="info-value">English · Finnish · Arabic · Russian</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-card">
+            <h4>What I Explore</h4>
+            <ul class="explore-list">
+              <li><i class="fas fa-robot"></i> Robotics &amp; Intelligent Automation</li>
+              <li><i class="fas fa-brain"></i> ML-Assisted Systems &amp; Tooling</li>
+              <li><i class="fas fa-cube"></i> Simulation &amp; Digital Twins</li>
+              <li><i class="fas fa-gamepad"></i> Indie Game Development</li>
+              <li><i class="fas fa-tools"></i> Tools, Plugins &amp; Workflow Automation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       EXPERIENCE
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section experience" id="experience">
+    <div class="container">
+
+      <div class="section-heading" data-aos="fade-up">
+        <span class="section-tag">Career</span>
+        <h2>Professional Experience</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- Visual Components -->
+        <div class="tl-item" data-aos="fade-up">
+          <div class="tl-gutter">
+            <div class="tl-dot current"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card-header">
+              <div>
+                <h3 class="tl-company">Visual Components</h3>
+                <span class="tl-meta"><i class="fas fa-map-marker-alt"></i> Espoo, Finland &nbsp;·&nbsp; <i class="fas fa-clock"></i> 4 Years</span>
+              </div>
+              <span class="badge-current">Current</span>
+            </div>
+
+            <div class="role-block">
+              <div class="role-title-row">
+                <h4>Test Developer</h4>
+                <span class="role-period">April 2023 – Present</span>
+              </div>
+              <p>Engineering-side testing for robotics and connectivity features in a complex simulation platform. Blend of systems design, production-quality code, and robust automation.</p>
+              <ul class="role-list">
+                <li>Writing production code in <strong>C++, C#, Python</strong> and shell scripting for test &amp; automation workflows</li>
+                <li>Validating robot behavior, kinematics, simulation logic, and backend components end-to-end</li>
+                <li>Developing API automation covering Python and C# SDKs</li>
+                <li>Designing test scenarios that mirror real physical-system conditions</li>
+                <li>Working across automation frameworks, CI/CD pipelines, and system-level validation</li>
+              </ul>
+            </div>
+
+            <div class="role-block role-secondary">
+              <div class="role-title-row">
+                <h4>Testing Engineer – Robotics &amp; Connectivity</h4>
+                <span class="role-period">May 2022 – April 2023</span>
+              </div>
+              <p>Part of the robotics and connectivity team; hands-on testing, coding, and building quality tooling across the release cycle.</p>
+              <ul class="role-list">
+                <li>Writing UI automation for the main application</li>
+                <li>Creating test cases for robot functionality, kinematics, and behavior</li>
+                <li>Building simulation scenarios to test robot features and component integration</li>
+                <li>Using the build system to create test &amp; release installers; identifying pipeline issues</li>
+              </ul>
+            </div>
+
+            <div class="tech-pills">
+              <span>C++</span><span>C#</span><span>Python</span><span>CI/CD</span>
+              <span>Robotics</span><span>UI Automation</span><span>Simulation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upwork -->
+        <div class="tl-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="tl-gutter">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-card-header">
+              <div>
+                <h3 class="tl-company">Upwork — Freelance</h3>
+                <span class="tl-meta"><i class="fas fa-globe"></i> Remote &nbsp;·&nbsp; <i class="fas fa-clock"></i> 1 yr 10 mo</span>
+              </div>
+            </div>
+
+            <div class="role-block">
+              <div class="role-title-row">
+                <h4>Machine Learning Engineer</h4>
+                <span class="role-period">February 2022 – May 2022</span>
+              </div>
+              <p>Delivered ML solutions to clients; end-to-end from data processing pipelines to model deployment.</p>
+              <ul class="role-list">
+                <li>Developing and deploying machine learning models using PyTorch &amp; TensorFlow</li>
+                <li>Building predictive models and algorithms for complex client problems</li>
+                <li>Implementing data pipelines with Hadoop, Spark, and Hive</li>
+                <li>Cloud deployments on <strong>Azure</strong> and <strong>AWS</strong></li>
+              </ul>
+            </div>
+
+            <div class="role-block role-secondary">
+              <div class="role-title-row">
+                <h4>IoT Developer</h4>
+                <span class="role-period">August 2020 – February 2022</span>
+              </div>
+              <p>Embedded systems design and ML-enhanced IoT solutions — closed-loop, secure, real-time data processing for home automation.</p>
+              <ul class="role-list">
+                <li>Designing embedded systems with <strong>Arduino</strong> and <strong>Raspberry Pi</strong></li>
+                <li>Creating schematics in KiCad</li>
+                <li>Integrating ML algorithms for intelligent automation decisions</li>
+                <li>Real-time messaging with MQTT and Node-RED workflows</li>
+              </ul>
+            </div>
+
+            <div class="tech-pills">
+              <span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>Scikit-Learn</span>
+              <span>Arduino</span><span>Raspberry Pi</span><span>MQTT</span><span>Azure</span><span>AWS</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /timeline -->
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       SKILLS
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+
+      <div class="section-heading" data-aos="fade-up">
+        <span class="section-tag">Expertise</span>
+        <h2>Skills &amp; Technologies</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-cat" data-aos="fade-up">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-code"></i></div>
+            <h3>Languages</h3>
+          </div>
+          <div class="bars">
+            <div class="bar-item"><span>C++</span>      <div class="bar"><div class="bar-fill" data-w="90"></div></div><span class="pct">90%</span></div>
+            <div class="bar-item"><span>Python</span>   <div class="bar"><div class="bar-fill" data-w="92"></div></div><span class="pct">92%</span></div>
+            <div class="bar-item"><span>C#</span>       <div class="bar"><div class="bar-fill" data-w="88"></div></div><span class="pct">88%</span></div>
+            <div class="bar-item"><span>Matlab</span>   <div class="bar"><div class="bar-fill" data-w="74"></div></div><span class="pct">74%</span></div>
+            <div class="bar-item"><span>JavaScript</span><div class="bar"><div class="bar-fill" data-w="68"></div></div><span class="pct">68%</span></div>
+          </div>
+        </div>
+
+        <div class="skill-cat" data-aos="fade-up" data-aos-delay="80">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-robot"></i></div>
+            <h3>Robotics &amp; Automation</h3>
+          </div>
+          <div class="bars">
+            <div class="bar-item"><span>Visual Components</span><div class="bar"><div class="bar-fill" data-w="95"></div></div><span class="pct">95%</span></div>
+            <div class="bar-item"><span>Robot Kinematics</span> <div class="bar"><div class="bar-fill" data-w="85"></div></div><span class="pct">85%</span></div>
+            <div class="bar-item"><span>UI Automation</span>    <div class="bar"><div class="bar-fill" data-w="88"></div></div><span class="pct">88%</span></div>
+            <div class="bar-item"><span>CI/CD Pipelines</span>  <div class="bar"><div class="bar-fill" data-w="83"></div></div><span class="pct">83%</span></div>
+            <div class="bar-item"><span>Arduino / RPi</span>    <div class="bar"><div class="bar-fill" data-w="91"></div></div><span class="pct">91%</span></div>
+          </div>
+        </div>
+
+        <div class="skill-cat" data-aos="fade-up" data-aos-delay="160">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-brain"></i></div>
+            <h3>ML &amp; Data</h3>
+          </div>
+          <div class="bars">
+            <div class="bar-item"><span>PyTorch</span>       <div class="bar"><div class="bar-fill" data-w="82"></div></div><span class="pct">82%</span></div>
+            <div class="bar-item"><span>TensorFlow</span>    <div class="bar"><div class="bar-fill" data-w="80"></div></div><span class="pct">80%</span></div>
+            <div class="bar-item"><span>Scikit-Learn</span>  <div class="bar"><div class="bar-fill" data-w="86"></div></div><span class="pct">86%</span></div>
+            <div class="bar-item"><span>Pandas / NumPy</span><div class="bar"><div class="bar-fill" data-w="88"></div></div><span class="pct">88%</span></div>
+            <div class="bar-item"><span>Azure / AWS</span>   <div class="bar"><div class="bar-fill" data-w="74"></div></div><span class="pct">74%</span></div>
+          </div>
+        </div>
+
+        <div class="skill-cat" data-aos="fade-up" data-aos-delay="240">
+          <div class="skill-cat-header">
+            <div class="skill-cat-icon"><i class="fas fa-microchip"></i></div>
+            <h3>IoT &amp; Embedded</h3>
+          </div>
+          <div class="bars">
+            <div class="bar-item"><span>MQTT / Node-RED</span>  <div class="bar"><div class="bar-fill" data-w="85"></div></div><span class="pct">85%</span></div>
+            <div class="bar-item"><span>Embedded Systems</span> <div class="bar"><div class="bar-fill" data-w="84"></div></div><span class="pct">84%</span></div>
+            <div class="bar-item"><span>KiCad</span>            <div class="bar"><div class="bar-fill" data-w="76"></div></div><span class="pct">76%</span></div>
+            <div class="bar-item"><span>MySQL / MongoDB</span>  <div class="bar"><div class="bar-fill" data-w="77"></div></div><span class="pct">77%</span></div>
+            <div class="bar-item"><span>Hadoop / Spark</span>   <div class="bar"><div class="bar-fill" data-w="70"></div></div><span class="pct">70%</span></div>
+          </div>
+        </div>
+
+      </div><!-- /skills-grid -->
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       EDUCATION
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section education" id="education">
+    <div class="container">
+
+      <div class="section-heading" data-aos="fade-up">
+        <span class="section-tag">Academic</span>
+        <h2>Education</h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card" data-aos="fade-up">
+          <div class="edu-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-body">
+            <span class="edu-year">2022 – 2024</span>
+            <h3>Master of Engineering</h3>
+            <span class="edu-field">Robotics and Automation Engineering</span>
+            <span class="edu-school"><i class="fas fa-university"></i> JAMK University of Applied Sciences</span>
+          </div>
+        </div>
+
+        <div class="edu-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="edu-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+          <div class="edu-body">
+            <span class="edu-year">Aug 2022 – May 2024</span>
+            <h3>Bachelor of Applied Science</h3>
+            <span class="edu-field">Information Technology</span>
+            <span class="edu-school"><i class="fas fa-university"></i> JAMK University of Applied Sciences</span>
+          </div>
+        </div>
+
+        <div class="edu-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="edu-icon-wrap"><i class="fas fa-cogs"></i></div>
+          <div class="edu-body">
+            <span class="edu-year">Sep 2008 – Jun 2013</span>
+            <h3>Bachelor's Degree</h3>
+            <span class="edu-field">Mechatronics &amp; Cybernetics</span>
+            <span class="edu-school"><i class="fas fa-university"></i> PFUR – Moscow, Russia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="section-heading" style="margin-top:80px;" data-aos="fade-up">
+        <span class="section-tag">Credentials</span>
+        <h2>Certifications</h2>
+      </div>
+
+      <div class="certs-grid">
+        <div class="cert-card" data-aos="zoom-in">
+          <div class="cert-icon"><i class="fas fa-bolt"></i></div>
+          <span>Sähköturvallisuus Sähkäri SFS 6002</span>
+        </div>
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="60">
+          <div class="cert-icon"><i class="fas fa-robot"></i></div>
+          <span>e-Series Application Track</span>
+        </div>
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="120">
+          <div class="cert-icon"><i class="fab fa-js-square"></i></div>
+          <span>Programming with JavaScript</span>
+        </div>
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="180">
+          <div class="cert-icon"><i class="fas fa-hashtag"></i></div>
+          <span>Complete C# Masterclass</span>
+        </div>
+        <div class="cert-card" data-aos="zoom-in" data-aos-delay="240">
+          <div class="cert-icon"><i class="fas fa-microchip"></i></div>
+          <span>Electricity &amp; Electronics – Robotics</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       CONTACT
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+
+      <div class="section-heading" data-aos="fade-up">
+        <span class="section-tag">Get In Touch</span>
+        <h2>Let's Build Something Together</h2>
+        <p class="section-sub">
+          Want to talk Automation Engineering, Robotics, or Machine Learning?<br>
+          Don't hesitate — send a message and let's start a conversation.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-left" data-aos="fade-right">
+          <a href="mailto:Fadi.helal@pm.me" class="contact-item">
+            <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+            <div>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">Fadi.helal@pm.me</span>
+            </div>
+          </a>
+          <a href="tel:+358405288067" class="contact-item">
+            <div class="contact-icon-wrap"><i class="fas fa-phone"></i></div>
+            <div>
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">+358 40 528 8067</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/fadi-helal" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-icon-wrap"><i class="fab fa-linkedin-in"></i></div>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">linkedin.com/in/fadi-helal</span>
+            </div>
+          </a>
+          <a href="https://github.com/saiprone" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-icon-wrap"><i class="fab fa-github"></i></div>
+            <div>
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">github.com/saiprone</span>
+            </div>
+          </a>
+        </div>
+
+        <form class="contact-form" id="contactForm" data-aos="fade-left"
+              action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field-group">
+            <input type="text"  id="fname"    name="name"    placeholder=" " required />
+            <label for="fname">Your Name</label>
+          </div>
+          <div class="field-group">
+            <input type="email" id="femail"   name="email"   placeholder=" " required />
+            <label for="femail">Your Email</label>
+          </div>
+          <div class="field-group">
+            <input type="text"  id="fsubject" name="subject" placeholder=" " />
+            <label for="fsubject">Subject</label>
+          </div>
+          <div class="field-group">
+            <textarea id="fmsg" name="message" rows="5" placeholder=" " required></textarea>
+            <label for="fmsg">Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            Send Message <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       FOOTER
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">FH<span>.</span></span>
+      <p>Designed &amp; built by Fadi Helal · Espoo, Finland</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/fadi-helal" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/saiprone"             target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:Fadi.helal@pm.me"                                 aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
