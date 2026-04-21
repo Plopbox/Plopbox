@@ -4,6 +4,11 @@
 
 'use strict';
 
+/* ── Force HTTPS ────────────────────────────────────────────── */
+if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+  location.replace('https:' + location.href.substring(5));
+}
+
 /* ── AOS init ───────────────────────────────────────────────── */
 AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
 
