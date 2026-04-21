@@ -491,6 +491,55 @@ img { max-width:100%; }
 .bar-fill { height:100%; background:linear-gradient(90deg,var(--cyan),var(--purple)); border-radius:4px; width:0; transition:width 1s cubic-bezier(.4,0,.2,1); }
 .pct { font-family:var(--mono); font-size:.75rem; color:var(--tx3); text-align:right; }
 
+/* ── Soft Skills ─────────────────────────────────────────────── */
+.soft-skills { background: var(--bg); }
+.soft-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.soft-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: border-color var(--trans), background var(--trans), transform var(--trans);
+}
+.soft-card:hover {
+  border-color: var(--border-h);
+  background: var(--card-hover);
+  transform: translateY(-4px);
+}
+.soft-icon {
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, rgba(0,212,255,.1), rgba(168,85,247,.1));
+  border: 1px solid rgba(0,212,255,.2);
+  border-radius: 12px;
+  color: var(--cyan); font-size: 1.15rem;
+}
+.soft-card h4 { font-size: 1rem; font-weight: 700; color: var(--tx1); }
+.soft-card p  { font-size: .9rem; color: var(--tx2); line-height: 1.75; }
+.soft-card p em { color: var(--cyan); font-style: normal; font-weight: 500; }
+
+@media(max-width: 860px)  { .soft-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width: 640px)  { .soft-grid { grid-template-columns: 1fr; } }
+
+/* Cert platform badge */
+.cert-platform {
+  font-family: var(--mono);
+  font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--tx3);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--border);
+  padding: 2px 10px; border-radius: 40px;
+  margin-top: 2px;
+}
+a.cert-card { text-decoration: none; cursor: none; }
+a.cert-card:hover .cert-platform { color: var(--purple); border-color: rgba(168,85,247,.3); }
+a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
+
 /* ── Education ──────────────────────────────────────────────── */
 .education { background:var(--bg); }
 .edu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }

@@ -159,13 +159,13 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
   if (!el) return;
 
   const phrases = [
-    'Intelligent Automation',
-    'Robotics Test Systems',
-    'ML-Enhanced IoT',
-    'Simulation Frameworks',
-    'Digital Twins',
-    'CI/CD Pipelines',
-    'Things That Think'
+    'End-to-End Validation Systems',
+    'Hardware & Software Together',
+    'Connectivity Test Frameworks',
+    'Hardware-in-the-Loop Testing',
+    'AI-Enabled Automation',
+    'Reliable Systems from Firmware to Cloud',
+    'Things That Earn Trust'
   ];
 
   let pi = 0, ci = 0, deleting = false, pauseTimer = null;
