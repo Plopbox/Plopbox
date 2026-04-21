@@ -240,6 +240,28 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
   fills.forEach(f => observer.observe(f));
 })();
 
+/* ── Scroll Progress Bar ─────────────────────────────────────── */
+(function initScrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const scrollTop  = window.scrollY;
+    const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width  = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+  }, { passive: true });
+})();
+
+/* ── vanilla-tilt (service cards) ───────────────────────────── */
+(function initTilt() {
+  if (typeof VanillaTilt === 'undefined') return;
+  VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+    max:        10,
+    speed:      400,
+    glare:      true,
+    'max-glare': 0.08,
+  });
+})();
+
 /* ── Contact form (mailto fallback) ─────────────────────────── */
 (function initForm() {
   const form = document.getElementById('contactForm');
