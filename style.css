@@ -956,6 +956,29 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
   100% { opacity: 0; transform: translateY(-16px); }
 }
 
+/* ── Spotlight reveal layer ─────────────────────────────────── */
+.reveal-layer {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.ri {
+  position: absolute;
+  font-family: 'SF Mono','Fira Code','Courier New', monospace;
+  line-height: 1;
+}
+.ri-label {
+  display: block; font-size: 9px; letter-spacing: .14em; text-transform: uppercase;
+  margin-bottom: 6px; opacity: .55;
+}
+.ri pre {
+  margin: 0; font-family: inherit; font-size: 10.5px; line-height: 1.55; white-space: pre;
+}
+.ri-cyan        { color: #00d4ff; }
+.ri-cyan .ri-label { color: rgba(0,212,255,.6); }
+.ri-purp        { color: #a855f7; }
+.ri-purp .ri-label { color: rgba(168,85,247,.6); }
+.ri-pink        { color: #ec4899; }
+.ri-pink .ri-label { color: rgba(236,72,153,.6); }
+
 /* ── Spotlight / cursor-reveal overlay ──────────────────────── */
 #spotlight-overlay {
   position: fixed; inset: 0; z-index: 200;
