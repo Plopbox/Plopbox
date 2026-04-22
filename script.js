@@ -346,94 +346,108 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
 (function initZapCursor() {
   if (!window.matchMedia('(hover: hover)').matches) return;
 
-  const trigger   = document.getElementById('hero-name-fadi');
-  const zapCursor = document.getElementById('zap-cursor');
-  const zapFlash  = document.getElementById('zap-flash');
+  const trigger         = document.getElementById('hero-name-fadi');
+  const zapCursor       = document.getElementById('zap-cursor');
+  const zapFlash        = document.getElementById('zap-flash');
   const normalCursor    = document.getElementById('cursor');
   const normalCursorDot = document.getElementById('cursorDot');
   if (!trigger || !zapCursor || !zapFlash) return;
 
   let mx = 0, my = 0;
-  let zapActive   = false;
-  let zapTimer    = null;
-  let frameId     = null;
+  let zapActive      = false;
+  let posFrameId     = null;
+  let boltInterval   = null;
+  let skeletonTimer  = null;
+  let flashTimer     = null;
 
-  const BOLT_CHARS = ['⚡', '✦', '⚡', '⌁', '⚡', '✦'];
+  const BOLT_CHARS = ['⚡', '⚡', '✦', '⌁', '⚡', '✦', '⚡'];
 
   function trackMouse(e) { mx = e.clientX; my = e.clientY; }
 
-  function positionZapCursor() {
+  // Continuously follow mouse each frame
+  function positionLoop() {
     zapCursor.style.left = mx + 'px';
     zapCursor.style.top  = my + 'px';
-    if (zapActive) frameId = requestAnimationFrame(positionZapCursor);
+    if (zapActive) posFrameId = requestAnimationFrame(positionLoop);
   }
 
   function spawnBolt() {
-    const bolt = document.createElement('span');
+    const bolt  = document.createElement('span');
     bolt.className = 'zap-bolt';
     bolt.textContent = BOLT_CHARS[Math.floor(Math.random() * BOLT_CHARS.length)];
-    const angle = (Math.random() * 360) * (Math.PI / 180);
-    const dist  = 30 + Math.random() * 55;
+    const angle = Math.random() * Math.PI * 2;
+    const dist  = 25 + Math.random() * 60;
     const tx    = Math.cos(angle) * dist;
     const ty    = Math.sin(angle) * dist;
-    const dur   = 0.55 + Math.random() * 0.5;
+    const dur   = 0.4 + Math.random() * 0.45;
     bolt.style.cssText = `
       left:${mx}px; top:${my}px;
       --bolt-tx:${tx.toFixed(1)}px;
       --bolt-ty:${ty.toFixed(1)}px;
-      --bolt-rot:${(Math.random()*120-60).toFixed(0)}deg;
       --bolt-dur:${dur.toFixed(2)}s;
     `;
     document.body.appendChild(bolt);
-    setTimeout(() => bolt.remove(), dur * 1000 + 100);
+    setTimeout(() => bolt.remove(), dur * 1000 + 80);
+  }
+
+  // Alternate screen flash on and off rapidly while zapping
+  function runFlash() {
+    if (!zapActive) { zapFlash.classList.remove('flash-on', 'flash-off'); return; }
+    zapFlash.classList.toggle('flash-on');
+    zapFlash.classList.toggle('flash-off');
+    const delay = 60 + Math.random() * 120;
+    flashTimer = setTimeout(runFlash, delay);
+  }
+
+  // Skeleton/body toggle — cartoon x-ray flash at irregular intervals
+  function runSkeletonFlash() {
+    if (!zapActive) { zapCursor.classList.remove('skeleton-frame'); return; }
+    const isSkeleton = zapCursor.classList.toggle('skeleton-frame');
+    // skeleton frame is short (like a flash), body frame is longer
+    const holdTime = isSkeleton
+      ? 60 + Math.random() * 80      // skeleton shows briefly
+      : 150 + Math.random() * 200;   // body shows longer
+    skeletonTimer = setTimeout(runSkeletonFlash, holdTime);
   }
 
   function startZap() {
     if (zapActive) return;
     zapActive = true;
 
-    // Hide normal cursor, show stick man
+    // Hide normal cursor ring, show stick man
     normalCursor.style.opacity    = '0';
     normalCursorDot.style.opacity = '0';
     zapCursor.style.display = 'block';
-
-    // Start following mouse
-    frameId = requestAnimationFrame(positionZapCursor);
-
-    // Shake the man
     zapCursor.classList.add('zapping');
 
-    // Flash screen
-    zapFlash.classList.remove('flashing');
-    void zapFlash.offsetWidth;
-    zapFlash.classList.add('flashing');
+    // Position loop
+    posFrameId = requestAnimationFrame(positionLoop);
 
-    // Burst of bolt particles
-    let boltCount = 0;
-    const boltInterval = setInterval(() => {
+    // Continuous bolt spawning — 2 bolts every ~110ms while active
+    boltInterval = setInterval(() => {
       spawnBolt();
-      spawnBolt();
-      boltCount += 2;
-      if (boltCount >= 18) clearInterval(boltInterval);
-    }, 55);
+      if (Math.random() > 0.4) spawnBolt();
+    }, 110);
 
-    // After ~0.55s freeze the figure (stopped shaking, still glowing)
-    zapTimer = setTimeout(() => {
-      zapCursor.classList.remove('zapping');
-      zapCursor.classList.add('frozen');
-      // Drip a last 2 bolts
-      spawnBolt(); spawnBolt();
-    }, 550);
+    // Screen flash loop
+    runFlash();
+
+    // Skeleton cartoon flash loop
+    runSkeletonFlash();
   }
 
   function stopZap() {
     if (!zapActive) return;
     zapActive = false;
-    clearTimeout(zapTimer);
-    cancelAnimationFrame(frameId);
 
-    zapCursor.classList.remove('zapping', 'frozen');
+    clearInterval(boltInterval);
+    clearTimeout(skeletonTimer);
+    clearTimeout(flashTimer);
+    cancelAnimationFrame(posFrameId);
+
+    zapCursor.classList.remove('zapping', 'skeleton-frame');
     zapCursor.style.display = 'none';
+    zapFlash.classList.remove('flash-on', 'flash-off');
 
     normalCursor.style.opacity    = '1';
     normalCursorDot.style.opacity = '1';
