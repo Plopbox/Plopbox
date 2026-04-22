@@ -80,7 +80,7 @@ The hidden items revealed by the cursor spotlight are pulled from my actual back
 - **Embedded C/C++** - state machines, RAII, move semantics, STM32 register maps, RTOS patterns
 - **Python** - async/await, type hints, protocols, dataclasses, TensorFlow, pytest fixtures and parametrize
 - **C# / .NET** - async Tasks, LINQ pipelines, result types
-- **Rust** — ownership model, borrowing, Arc/Mutex, iterator chains
+- **Rust** - ownership model, borrowing, Arc/Mutex, iterator chains
 - **Electronics** - NPN transistors, op-amps, H-bridges, LC filters, logic gates, CAN/SPI/I2C/UART frame diagrams
 - **Robotics** - ROS2 publisher nodes, drone top-view, 6-DOF arm kinematics, FSM power states, quadrature encoders
 - **Signal processing** - FFT, Kalman filter predict/update, Ziegler-Nichols PID tuning, oscilloscope waveforms
