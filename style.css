@@ -971,16 +971,13 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
   width: 44px;
   height: 60px;
 }
-/* both svgs stacked on top of each other */
+/* both svgs stacked, visibility switched entirely in JS via display */
 #zap-cursor .stick-body,
 #zap-cursor .stick-skeleton {
   position: absolute;
   top: 0; left: 0;
+  display: block;
 }
-/* skeleton hidden by default, shown during skeleton frames */
-#zap-cursor .stick-skeleton { opacity: 0; }
-#zap-cursor.skeleton-frame .stick-skeleton { opacity: 1; }
-#zap-cursor.skeleton-frame .stick-body     { opacity: 0; }
 
 #zap-cursor.zapping {
   animation: zapShake 0.07s steps(1) infinite;
@@ -997,17 +994,6 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
   88%  { transform: translate(calc(-50% + 5px),  calc(-50% + 5px)); }
   100% { transform: translate(calc(-50% + 0px),  calc(-50% + 0px)); }
 }
-
-/* screen flash */
-#zap-flash {
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 99998;
-  opacity: 0;
-  background: rgba(0, 212, 255, 0.15);
-  transition: opacity 0.06s;
-}
-#zap-flash.flash-on { opacity: 1; }
-#zap-flash.flash-off { opacity: 0; }
 
 /* bolt particles */
 .zap-bolt {
@@ -1027,11 +1013,31 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
 }
 
 /* skeleton glow */
-#zap-cursor.skeleton-frame .stick-skeleton {
+#zap-cursor .stick-skeleton {
   filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 16px rgba(0,212,255,.9));
 }
 #zap-cursor .stick-body {
   filter: drop-shadow(0 0 8px rgba(0,212,255,.9)) drop-shadow(0 0 20px rgba(168,85,247,.6));
+}
+
+/* ── Page electricity lighting layer ────────────────────────── */
+/* sits over the whole page, mix-blend-mode screen means white = brighten */
+#zap-lights {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 99994;
+  background: #ffffff;
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 0.03s linear;
+}
+/* flash div — coloured cyan tint on top of the light */
+#zap-flash {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 99995;
+  background: rgba(0, 212, 255, 0.18);
+  opacity: 0;
+  transition: opacity 0.03s linear;
 }
 
 /* ── Logo waves ─────────────────────────────────────────────── */
