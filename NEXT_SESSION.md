@@ -21,7 +21,7 @@ Files: `index.html`, `style.css`, `script.js`, `CNAME`
 ---
 
 ## Owner Profile — Fadi Helal
-- **Title:** System Validation Engineer / SDET
+- **Title:** Software Developer in Test (SDET)
 - **Location:** Espoo, Finland
 - **Email:** Fadi.helal@pm.me
 - **Phone:** +358 45 803 4097
@@ -200,7 +200,7 @@ Fully configured and working. DO NOT touch DNS.
 
 ## Personality / Brand Duality
 Fadi has TWO identities on this site:
-1. **Professional:** System Validation Engineer, robotics, ML, IoT, serious tech
+1. **Professional:** Software Developer in Test, robotics, ML, IoT, serious tech
 2. **Creator:** PlopBox gaming channel, funny content, chaos moments, personality
 
 The website should reflect BOTH — professional sections use cyan/purple cool palette,

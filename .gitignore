@@ -419,3 +419,6 @@ FodyWeavers.xsd
 
 # LinkedIn export
 *.pdf
+
+# Local session notes
+NEXT_SESSION.md

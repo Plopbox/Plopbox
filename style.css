@@ -129,6 +129,50 @@ img { max-width:100%; }
 .btn-outline:hover { background:rgba(0,212,255,.08); }
 .btn-full { width:100%; justify-content:center; }
 
+/* ── Book a Call button ─────────────────────────────────────── */
+.btn-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 600;
+  font-family: var(--sans);
+  letter-spacing: .01em;
+  cursor: none;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--purp) 100%);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--trans), box-shadow var(--trans);
+  box-shadow: 0 0 14px rgba(0,212,255,.25), 0 0 28px rgba(168,85,247,.15);
+}
+.btn-book::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--purp) 0%, var(--cyan) 100%);
+  opacity: 0;
+  transition: opacity var(--trans);
+}
+.btn-book:hover::before { opacity: 1; }
+.btn-book:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(0,212,255,.45), 0 0 44px rgba(168,85,247,.3);
+  color: #fff;
+}
+.btn-book i,
+.btn-book span {
+  position: relative;
+  z-index: 1;
+  color: inherit;
+}
+@media (max-width: 860px) {
+  .nav-book { display: none; }
+}
+
 /* ── Navbar ─────────────────────────────────────────────────── */
 .navbar {
   position:fixed; top:0; left:0; right:0; z-index:900;
@@ -606,6 +650,22 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
   transition:border-color var(--trans), background var(--trans), transform var(--trans);
 }
 .contact-item:hover { border-color:var(--border-h); background:var(--card-hover); transform:translateX(6px); }
+
+/* Book a Call item gets a gradient border to stand out */
+.contact-item-book {
+  border-color: rgba(0,212,255,.35);
+  background: linear-gradient(135deg, rgba(0,212,255,.05) 0%, rgba(168,85,247,.05) 100%);
+}
+.contact-item-book:hover {
+  border-color: var(--cyan);
+  background: linear-gradient(135deg, rgba(0,212,255,.10) 0%, rgba(168,85,247,.08) 100%);
+}
+.contact-icon-book {
+  background: linear-gradient(135deg, rgba(0,212,255,.15) 0%, rgba(168,85,247,.15) 100%) !important;
+  border-color: rgba(0,212,255,.3) !important;
+  color: var(--cyan) !important;
+}
+
 .contact-icon-wrap {
   width:44px; height:44px; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;
@@ -744,6 +804,14 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
   overflow: visible;
 }
 .logo-svg-footer { width: 50px; height: auto; }
+.nav-logo-img {
+  width: 38px; height: 38px; flex-shrink: 0;
+  object-fit: contain;
+}
+.footer-logo-img {
+  width: 50px; height: 50px; flex-shrink: 0;
+  object-fit: contain;
+}
 .fh-mono {
   animation: fhPulse 3.2s ease-in-out infinite;
 }
