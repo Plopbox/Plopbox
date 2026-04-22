@@ -39,6 +39,68 @@
   --trans-slow: .6s cubic-bezier(.4,0,.2,1);
 }
 
+/* ── Light theme ────────────────────────────────────────────── */
+body.light-theme {
+  --bg:         #f0f4f8;
+  --bg2:        #e2e8f0;
+  --bg3:        #cbd5e1;
+  --card:       rgba(255,255,255,.75);
+  --card-hover: rgba(255,255,255,.95);
+  --border:     rgba(0,0,0,.1);
+  --border-h:   rgba(0,150,200,.4);
+
+  --cyan:       #0284c7;
+  --purple:     #7c3aed;
+  --green:      #059669;
+  --red:        #e11d48;
+
+  --glow-c:     rgba(2,132,199,.18);
+  --glow-p:     rgba(124,58,237,.18);
+
+  --tx1:        #0f172a;
+  --tx2:        #334155;
+  --tx3:        #64748b;
+}
+
+/* Light theme specific overrides */
+body.light-theme { color: var(--tx1); }
+body.light-theme .navbar { background: rgba(240,244,248,.92); border-bottom-color: rgba(0,0,0,.08); }
+body.light-theme .navbar.scrolled { background: rgba(240,244,248,.97); }
+body.light-theme #heroCanvas { opacity: .25; }
+body.light-theme .hero { background: var(--bg); }
+body.light-theme .scroll-progress { background: linear-gradient(90deg, var(--cyan), var(--purple)); }
+body.light-theme .section-tag { background: rgba(2,132,199,.08); border-color: rgba(2,132,199,.2); }
+body.light-theme .btn-ghost { border-color: var(--border); color: var(--tx1); }
+body.light-theme .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+body.light-theme .btn-outline { border-color: rgba(2,132,199,.4); }
+body.light-theme .tl-card,
+body.light-theme .skill-cat,
+body.light-theme .edu-card,
+body.light-theme .cert-card,
+body.light-theme .service-card,
+body.light-theme .soft-card,
+body.light-theme .info-glass,
+body.light-theme .explore-card,
+body.light-theme .contact-item,
+body.light-theme .contact-form { background: var(--card); border-color: var(--border); box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+body.light-theme .field-group input,
+body.light-theme .field-group textarea { background: rgba(255,255,255,.9); border-color: rgba(0,0,0,.15); color: var(--tx1); }
+body.light-theme .field-group label { color: var(--tx3); }
+body.light-theme .footer { background: var(--bg2); border-top-color: var(--border); }
+body.light-theme .footer-socials a { background: rgba(255,255,255,.8); }
+body.light-theme .spotlight-overlay { display: none; }
+body.light-theme .back-to-top { background: var(--cyan); color: #fff; }
+body.light-theme .gradient-text {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+body.light-theme .hero-desc,
+body.light-theme .hero-role,
+body.light-theme .role-prefix { color: var(--tx2); }
+body.light-theme .hero-stats { background: var(--card); border-color: var(--border); }
+body.light-theme .nav-toggle-btn { color: var(--tx2); border-color: var(--border); }
+body.light-theme .nav-toggle-btn.active { color: var(--cyan); border-color: var(--cyan); background: rgba(2,132,199,.08); }
+
 /* ── Reset ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
@@ -1433,3 +1495,66 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
   .soft-card:active,
   .cert-card:active                      { transform: translateY(-2px); }
 }
+
+/* ── Nav toggle buttons ─────────────────────────────────────── */
+.nav-toggles {
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-toggle-btn {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  color: var(--tx3);
+  font-size: .82rem;
+  cursor: pointer;
+  transition: color var(--trans), border-color var(--trans), background var(--trans);
+}
+.nav-toggle-btn:hover { color: var(--tx1); border-color: rgba(255,255,255,.25); }
+.nav-toggle-btn.active {
+  color: var(--cyan);
+  border-color: rgba(0,212,255,.4);
+  background: rgba(0,212,255,.07);
+}
+/* hide on mobile — hamburger already takes over */
+@media (max-width: 860px) {
+  .nav-toggles { gap: 4px; }
+  .nav-toggle-btn { width: 30px; height: 30px; font-size: .75rem; }
+}
+
+/* ── Back to Top ────────────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  z-index: 1200;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  color: #fff;
+  border: none; border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,212,255,.3);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--trans), transform var(--trans), box-shadow var(--trans);
+  pointer-events: none;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  box-shadow: 0 6px 28px rgba(0,212,255,.5);
+  transform: translateY(-3px);
+}
+
+/* ── Spotlight disabled ─────────────────────────────────────── */
+body.no-spotlight #spotlight-overlay { display: none !important; }
+
+/* ── Zap disabled ───────────────────────────────────────────── */
+body.no-zap #zap-cursor,
+body.no-zap #zap-flash,
+body.no-zap #zap-lights { display: none !important; }

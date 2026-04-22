@@ -431,6 +431,7 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
 
   function startZap() {
     if (zapActive) return;
+    if (document.body.classList.contains('no-zap')) return;
     zapActive = true;
 
     normalCursor.style.opacity    = '0';
@@ -475,5 +476,83 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
   document.addEventListener('mousemove', trackMouse, { passive: true });
   trigger.addEventListener('mouseenter', startZap);
   trigger.addEventListener('mouseleave', stopZap);
+})();
+
+/* ── Back to Top ─────────────────────────────────────────────── */
+(function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ── Spotlight / hover effects toggle ───────────────────────── */
+(function initSpotlightToggle() {
+  const btn = document.getElementById('toggleSpotlight');
+  if (!btn) return;
+
+  // Default: ON (not disabled)
+  let disabled = localStorage.getItem('spotlightOff') === '1';
+  function apply() {
+    document.body.classList.toggle('no-spotlight', disabled);
+    btn.classList.toggle('active', disabled);
+    btn.title = disabled ? 'Enable spotlight & hover effects' : 'Disable spotlight & hover effects';
+  }
+  apply();
+
+  btn.addEventListener('click', () => {
+    disabled = !disabled;
+    localStorage.setItem('spotlightOff', disabled ? '1' : '0');
+    apply();
+  });
+})();
+
+/* ── Zap effect toggle ───────────────────────────────────────── */
+(function initZapToggle() {
+  const btn = document.getElementById('toggleZap');
+  if (!btn) return;
+
+  let disabled = localStorage.getItem('zapOff') === '1';
+  function apply() {
+    document.body.classList.toggle('no-zap', disabled);
+    btn.classList.toggle('active', disabled);
+    btn.title = disabled ? 'Enable zap effect' : 'Disable zap effect';
+  }
+  apply();
+
+  btn.addEventListener('click', () => {
+    disabled = !disabled;
+    localStorage.setItem('zapOff', disabled ? '1' : '0');
+    apply();
+  });
+})();
+
+/* ── Dark / Light theme toggle ───────────────────────────────── */
+(function initThemeToggle() {
+  const btn  = document.getElementById('toggleTheme');
+  if (!btn) return;
+  const icon = btn.querySelector('i');
+
+  let isLight = localStorage.getItem('theme') === 'light';
+
+  function apply() {
+    document.body.classList.toggle('light-theme', isLight);
+    icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+    btn.title = isLight ? 'Switch to dark theme' : 'Switch to light theme';
+    btn.classList.toggle('active', isLight);
+  }
+  apply();
+
+  btn.addEventListener('click', () => {
+    isLight = !isLight;
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    apply();
+  });
 })();
 
