@@ -1,4 +1,4 @@
-﻿# Fadi Helal — Personal Portfolio
+﻿# Fadi Helal - Personal Portfolio
 
 My personal portfolio website. Built from scratch to reflect what I actually do: system validation, hardware/software integration, robotics, connectivity testing, and automation engineering. The goal was a site that feels technical and personal at the same time, not just another template with placeholder text.
 
@@ -22,21 +22,21 @@ Plopbox/
 
 ## Features worth mentioning
 
-**Spotlight reveal layer** — moving the cursor around reveals hidden code snippets, circuit diagrams, sensor data, math equations, and robotics content embedded across the page. All of it is themed around my actual work: C++, Python, C#, Rust, ROS2, STM32, Kalman filters, IK solvers, LiDAR, UART/SPI/I2C, and more.
+**Spotlight reveal layer** - moving the cursor around reveals hidden code snippets, circuit diagrams, sensor data, math equations, and robotics content embedded across the page. All of it is themed around my actual work: C++, Python, C#, Rust, ROS2, STM32, Kalman filters, IK solvers, LiDAR, UART/SPI/I2C, and more.
 
-**Particle canvas** — animated background with connected particle nodes. Subtle, not distracting.
+**Particle canvas** - animated background with connected particle nodes. Subtle, not distracting.
 
-**Typed text** — rotating phrases in the hero that cycle through what I actually build, not generic buzzwords.
+**Typed text** - rotating phrases in the hero that cycle through what I actually build, not generic buzzwords.
 
-**Electrocution effect** — hovering over my name triggers a full electrocution sequence. The cursor turns into a stick figure that shakes, sparks bolts in all directions, flashes the screen, and switches between body and skeleton view just like classic cartoons. The whole thing stays active until you move the cursor away.
+**Electrocution effect** - hovering over my name triggers a full electrocution sequence. The cursor turns into a stick figure that shakes, sparks bolts in all directions, flashes the screen, and switches between body and skeleton view just like classic cartoons. The whole thing stays active until you move the cursor away.
 
-**Skill bars, counters, and scan lines** — all scroll-triggered with IntersectionObserver.
+**Skill bars, counters, and scan lines** - all scroll-triggered with IntersectionObserver.
 
-**3D tilt on service cards** — using vanilla-tilt for the depth effect on hover.
+**3D tilt on service cards** - using vanilla-tilt for the depth effect on hover.
 
-**Contact form** — connected to Formspree with a mailto fallback.
+**Contact form** - connected to Formspree with a mailto fallback.
 
-**Fully responsive** — tested down to 380px wide.
+**Fully responsive** - tested down to 380px wide.
 
 ---
 
@@ -77,16 +77,16 @@ Then open `http://localhost:8080` in your browser.
 
 The hidden items revealed by the cursor spotlight are pulled from my actual background and day-to-day work:
 
-- **Embedded C/C++** — state machines, RAII, move semantics, STM32 register maps, RTOS patterns
-- **Python** — async/await, type hints, protocols, dataclasses, TensorFlow, pytest fixtures and parametrize
-- **C# / .NET** — async Tasks, LINQ pipelines, result types
+- **Embedded C/C++** - state machines, RAII, move semantics, STM32 register maps, RTOS patterns
+- **Python** - async/await, type hints, protocols, dataclasses, TensorFlow, pytest fixtures and parametrize
+- **C# / .NET** - async Tasks, LINQ pipelines, result types
 - **Rust** — ownership model, borrowing, Arc/Mutex, iterator chains
-- **Electronics** — NPN transistors, op-amps, H-bridges, LC filters, logic gates, CAN/SPI/I2C/UART frame diagrams
-- **Robotics** — ROS2 publisher nodes, drone top-view, 6-DOF arm kinematics, FSM power states, quadrature encoders
-- **Signal processing** — FFT, Kalman filter predict/update, Ziegler-Nichols PID tuning, oscilloscope waveforms
-- **Math and physics** — Maxwell equations, linear algebra with NumPy, inverse kinematics
-- **Sensors** — IMU sensor fusion with Madgwick, LiDAR point clouds, PWM servo timing
-- **DevOps and tooling** — Docker Compose, Kubernetes deployments, Azure DevOps pipelines, Git interactive rebase, Bash log analysis
+- **Electronics** - NPN transistors, op-amps, H-bridges, LC filters, logic gates, CAN/SPI/I2C/UART frame diagrams
+- **Robotics** - ROS2 publisher nodes, drone top-view, 6-DOF arm kinematics, FSM power states, quadrature encoders
+- **Signal processing** - FFT, Kalman filter predict/update, Ziegler-Nichols PID tuning, oscilloscope waveforms
+- **Math and physics** - Maxwell equations, linear algebra with NumPy, inverse kinematics
+- **Sensors** - IMU sensor fusion with Madgwick, LiDAR point clouds, PWM servo timing
+- **DevOps and tooling** - Docker Compose, Kubernetes deployments, Azure DevOps pipelines, Git interactive rebase, Bash log analysis
 
 ---
 
