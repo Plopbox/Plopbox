@@ -342,3 +342,105 @@ AOS.init({ once: true, duration: 700, easing: 'ease-out-cubic', offset: 60 });
   headings.forEach(h => observer.observe(h));
 })();
 
+/* ── Electrocution cursor on "Fadi" hover ───────────────────── */
+(function initZapCursor() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+
+  const trigger   = document.getElementById('hero-name-fadi');
+  const zapCursor = document.getElementById('zap-cursor');
+  const zapFlash  = document.getElementById('zap-flash');
+  const normalCursor    = document.getElementById('cursor');
+  const normalCursorDot = document.getElementById('cursorDot');
+  if (!trigger || !zapCursor || !zapFlash) return;
+
+  let mx = 0, my = 0;
+  let zapActive   = false;
+  let zapTimer    = null;
+  let frameId     = null;
+
+  const BOLT_CHARS = ['⚡', '✦', '⚡', '⌁', '⚡', '✦'];
+
+  function trackMouse(e) { mx = e.clientX; my = e.clientY; }
+
+  function positionZapCursor() {
+    zapCursor.style.left = mx + 'px';
+    zapCursor.style.top  = my + 'px';
+    if (zapActive) frameId = requestAnimationFrame(positionZapCursor);
+  }
+
+  function spawnBolt() {
+    const bolt = document.createElement('span');
+    bolt.className = 'zap-bolt';
+    bolt.textContent = BOLT_CHARS[Math.floor(Math.random() * BOLT_CHARS.length)];
+    const angle = (Math.random() * 360) * (Math.PI / 180);
+    const dist  = 30 + Math.random() * 55;
+    const tx    = Math.cos(angle) * dist;
+    const ty    = Math.sin(angle) * dist;
+    const dur   = 0.55 + Math.random() * 0.5;
+    bolt.style.cssText = `
+      left:${mx}px; top:${my}px;
+      --bolt-tx:${tx.toFixed(1)}px;
+      --bolt-ty:${ty.toFixed(1)}px;
+      --bolt-rot:${(Math.random()*120-60).toFixed(0)}deg;
+      --bolt-dur:${dur.toFixed(2)}s;
+    `;
+    document.body.appendChild(bolt);
+    setTimeout(() => bolt.remove(), dur * 1000 + 100);
+  }
+
+  function startZap() {
+    if (zapActive) return;
+    zapActive = true;
+
+    // Hide normal cursor, show stick man
+    normalCursor.style.opacity    = '0';
+    normalCursorDot.style.opacity = '0';
+    zapCursor.style.display = 'block';
+
+    // Start following mouse
+    frameId = requestAnimationFrame(positionZapCursor);
+
+    // Shake the man
+    zapCursor.classList.add('zapping');
+
+    // Flash screen
+    zapFlash.classList.remove('flashing');
+    void zapFlash.offsetWidth;
+    zapFlash.classList.add('flashing');
+
+    // Burst of bolt particles
+    let boltCount = 0;
+    const boltInterval = setInterval(() => {
+      spawnBolt();
+      spawnBolt();
+      boltCount += 2;
+      if (boltCount >= 18) clearInterval(boltInterval);
+    }, 55);
+
+    // After ~0.55s freeze the figure (stopped shaking, still glowing)
+    zapTimer = setTimeout(() => {
+      zapCursor.classList.remove('zapping');
+      zapCursor.classList.add('frozen');
+      // Drip a last 2 bolts
+      spawnBolt(); spawnBolt();
+    }, 550);
+  }
+
+  function stopZap() {
+    if (!zapActive) return;
+    zapActive = false;
+    clearTimeout(zapTimer);
+    cancelAnimationFrame(frameId);
+
+    zapCursor.classList.remove('zapping', 'frozen');
+    zapCursor.style.display = 'none';
+
+    normalCursor.style.opacity    = '1';
+    normalCursorDot.style.opacity = '1';
+  }
+
+  document.addEventListener('mousemove', trackMouse, { passive: true });
+  trigger.addEventListener('mouseenter', startZap);
+  trigger.addEventListener('mouseleave', stopZap);
+})();
+

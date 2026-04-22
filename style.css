@@ -950,6 +950,74 @@ a.cert-card:hover { box-shadow: 0 8px 32px rgba(168,85,247,.12); }
 /* ── Selection ──────────────────────────────────────────────── */
 ::selection { background:rgba(0,212,255,.2); color:var(--tx1); }
 
+/* ── Electrocution cursor ───────────────────────────────────── */
+#zap-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: none;
+  display: none;
+}
+#zap-cursor.zapping {
+  animation: zapShake 0.08s steps(1) infinite;
+}
+@keyframes zapShake {
+  0%   { transform: translate(calc(-50% + 0px),  calc(-50% + 0px)); }
+  10%  { transform: translate(calc(-50% - 5px),  calc(-50% + 3px)); }
+  20%  { transform: translate(calc(-50% + 6px),  calc(-50% - 4px)); }
+  30%  { transform: translate(calc(-50% - 4px),  calc(-50% + 6px)); }
+  40%  { transform: translate(calc(-50% + 7px),  calc(-50% - 2px)); }
+  50%  { transform: translate(calc(-50% - 6px),  calc(-50% + 5px)); }
+  60%  { transform: translate(calc(-50% + 3px),  calc(-50% - 7px)); }
+  70%  { transform: translate(calc(-50% - 7px),  calc(-50% + 2px)); }
+  80%  { transform: translate(calc(-50% + 5px),  calc(-50% + 6px)); }
+  90%  { transform: translate(calc(-50% - 3px),  calc(-50% - 5px)); }
+  100% { transform: translate(calc(-50% + 0px),  calc(-50% + 0px)); }
+}
+/* screen flash on zap */
+#zap-flash {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 99998;
+  background: rgba(0, 212, 255, 0.18);
+  opacity: 0;
+}
+#zap-flash.flashing {
+  animation: zapFlash 1.1s ease-out forwards;
+}
+@keyframes zapFlash {
+  0%   { opacity: 1; }
+  8%   { opacity: 0.7; }
+  16%  { opacity: 0.4; }
+  24%  { opacity: 0.7; }
+  35%  { opacity: 0.2; }
+  50%  { opacity: 0.4; }
+  70%  { opacity: 0.1; }
+  100% { opacity: 0; }
+}
+/* bolt particles */
+.zap-bolt {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99997;
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  color: var(--cyan);
+  text-shadow: 0 0 8px var(--cyan), 0 0 18px rgba(168,85,247,.9);
+  animation: boltFly var(--bolt-dur, .9s) ease-out forwards;
+  transform-origin: center;
+}
+@keyframes boltFly {
+  0%   { opacity: 1; transform: translate(0, 0) rotate(var(--bolt-rot,0deg)) scale(1); }
+  60%  { opacity: 0.8; }
+  100% { opacity: 0; transform: translate(var(--bolt-tx, 0px), var(--bolt-ty, -60px)) rotate(var(--bolt-rot,0deg)) scale(0.3); }
+}
+
+/* frozen cursor state */
+#zap-cursor.frozen .stick-man-svg {
+  filter: drop-shadow(0 0 12px rgba(0,212,255,1)) drop-shadow(0 0 24px rgba(168,85,247,.8));
+}
+
 /* ── Logo waves ─────────────────────────────────────────────── */
 .logo-wave { animation: waveRise 2.8s ease-in-out infinite; transform-origin: center bottom; }
 .logo-wave-2 { animation-delay: .56s; }
