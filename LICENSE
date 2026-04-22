@@ -1,24 +1,33 @@
-This is free and unencumbered software released into the public domain.
+﻿PROPRIETARY SOFTWARE LICENSE
+============================
+Copyright (c) 2025 Fadi Helal. All Rights Reserved.
 
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
+NOTICE: This repository and all its contents — including but not limited to
+HTML, CSS, JavaScript, SVG assets, design, layout, and written copy — are the
+exclusive intellectual property of Fadi Helal ("the Author").
 
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
+This source code is PROPRIETARY AND CONFIDENTIAL.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+YOU MAY NOT, without the express prior written permission of the Author:
 
-For more information, please refer to <https://unlicense.org>
+  1. Copy, reproduce, or duplicate any portion of this code or design.
+  2. Modify, adapt, translate, or create derivative works based on this code.
+  3. Distribute, publish, sub-license, sell, rent, lease, or transfer this code.
+  4. Use this code, in whole or in part, as a template or starting point for
+     any other project, commercial or non-commercial.
+  5. Reverse-engineer, decompile, or disassemble any compiled or minified
+     portion of this code.
+  6. Remove or alter this copyright notice from any copy of the code.
+
+VIEWING ONLY: Accessing this repository on GitHub does not grant any license
+or rights to use, copy, or redistribute any part of the code or design.
+
+VIOLATIONS: Unauthorized use of this code is a violation of copyright law and
+may result in civil damages and criminal prosecution to the fullest extent
+permitted by law, including claims under the Berne Convention and applicable
+international intellectual property treaties.
+
+For licensing inquiries, collaboration requests, or permissions:
+  Email:   Fadi.helal@pm.me
+  Website: https://plopbox.io
+  GitHub:  https://github.com/Plopbox
